@@ -1,63 +1,90 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>🎁 Surprise</title>
+<title> </title>
+
 <style>
 body{
-  margin:0; background:linear-gradient(180deg,#12002f,#000);
-  color:white; font-family:Arial; text-align:center;
+  margin:0;
+  background:black;
+  color:white;
+  font-family:Arial;
+  text-align:center;
 }
-h1{
-  color:#ff4dd2; margin-top:20px;
-  animation: float 2.5s infinite ease-in-out;
+
+.section{
+  opacity:0;
+  transform:translateY(25px);
+  transition:1s;
+  margin:40px 0;
 }
-@keyframes float{ 0%{transform:translateY(0)} 50%{transform:translateY(-8px)} 100%{transform:translateY(0)} }
-.name{
-  font-size:26px; color:#ffd1f3; margin:10px 0;
-  animation: pop 1.2s ease-out;
+
+.show{
+  opacity:1;
+  transform:translateY(0);
 }
-@keyframes pop{ from{transform:scale(.7);opacity:0} to{transform:scale(1);opacity:1} }
-.gift{ font-size:70px; cursor:pointer; transition:.3s }
-.gift.open{ transform:scale(1.1) }
-p{ width:90%; margin:10px auto 20px; font-size:18px }
-img{ width:90%; max-width:300px; border-radius:20px; margin:10px 0 }
-audio{ width:90%; margin:12px 0 }
-.hidden{ display:none }
+
+p{
+  width:85%;
+  margin:auto;
+  font-size:17px;
+  line-height:1.8;
+}
+
+img{
+  width:85%;
+  max-width:300px;
+  border-radius:18px;
+}
+
+audio{display:none}
 </style>
 </head>
 
 <body>
-<h1>🎄 Merry Christmas 🎄</h1>
-<div class="name">Nonoty 💕</div>
 
-<div id="gift" class="gift" onclick="openGift()">🎁</div>
+<audio autoplay loop>
+  <source src="يوم ما اتقابلنا.mp3">
+</audio>
 
-<div id="content" class="hidden">
+<div class="section">
   <p>
-    دي رسالة من قلبي ❤️  
-    كل سنة وانتِ طيبة، وأجمل حاجة حصلت في حياتي ✨
+    من غير مقدمات  
+    وجودك في حياتي فرق كل حاجة 🤍
   </p>
+</div>
 
-  <h3>🎵 أغنية</h3>
-  <audio controls autoplay>
-    <source src="يوم ما اتقابلنا.mp3">
-  </audio>
-
-  <h3>📸 صور</h3>
+<div class="section">
   <img src="IMG-20250215-WA0016.jpg">
+</div>
+
+<div class="section">
   <img src="IMG-20250407-WA0051.jpg">
+</div>
+
+<div class="section">
   <img src="IMG-20250929-WA0008.jpg">
 </div>
 
+<div class="section">
+  <p>
+    كل سنة وانتِ الأجمل  
+    والأقرب  
+    والأهم ✨
+  </p>
+</div>
+
 <script>
-function openGift(){
-  document.getElementById('gift').classList.add('open');
-  document.getElementById('gift').innerText='🎉';
-  setTimeout(()=>{
-    document.getElementById('content').classList.remove('hidden');
-  },400);
-}
+let sections=document.querySelectorAll(".section");
+let i=0;
+setInterval(()=>{
+  if(i<sections.length){
+    sections[i].classList.add("show");
+    i++;
+  }
+},1300);
 </script>
+
 </body>
 </html>
