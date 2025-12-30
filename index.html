@@ -3,28 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <title>Christmas 🔐</title>
+<style>
+body{
+  background:linear-gradient(180deg,#2b0057,#000);
+  color:white; font-family:Arial; text-align:center; padding-top:90px;
+}
+h1{ animation: glow 2s infinite alternate; }
+@keyframes glow{ from{text-shadow:0 0 8px #ff4dd2} to{text-shadow:0 0 18px #7b61ff} }
+input{ padding:12px; border-radius:25px; border:none; width:260px; text-align:center; }
+button{
+  margin-top:18px; padding:12px 30px; border:none; border-radius:30px;
+  background:linear-gradient(90deg,#ff0066,#6600ff); color:white; font-size:18px;
+}
+#error{ color:#ff6b6b; display:none; margin-top:12px; }
+</style>
 </head>
 
-<body style="background:black;color:white;text-align:center;padding-top:100px">
+<body>
+<h1>🎄 Christmas 2026 🎄</h1>
+<p>enter password</p>
+<input type="password" id="pass" placeholder="6/5/2024">
+<br>
+<button onclick="check()">🔓 unlock</button>
+<div id="error">❌ كلمة السر خاطئة</div>
 
-<h2>🎄 Christmas</h2>
-
-<input type="password" id="pass" placeholder="Password">
-<br><br>
-
-<button onclick="check()">unlock 🔓</button>
-
-<p id="error" style="color:red;display:none">كلمة السر خاطئة</p>
+<audio id="openSound">
+  <source src="open.mp3">
+</audio>
 
 <script>
 function check(){
-  if(document.getElementById("pass").value === "christmas"){
-    window.location.href = "surprise.html";
+  if(document.getElementById("pass").value === "6/5/2024"){
+    document.getElementById("openSound").play();
+    setTimeout(()=>{ window.location.href="surprise.html"; },700);
   }else{
     document.getElementById("error").style.display="block";
   }
 }
 </script>
-
 </body>
 </html>
