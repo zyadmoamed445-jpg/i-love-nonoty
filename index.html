@@ -1,45 +1,52 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Christmas 🔐</title>
+<title> </title>
+
 <style>
 body{
-  background:linear-gradient(180deg,#2b0057,#000);
-  color:white; font-family:Arial; text-align:center; padding-top:90px;
+  margin:0;
+  height:100vh;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-family:Arial;
+  transition:opacity .8s;
 }
-h1{ animation: glow 2s infinite alternate; }
-@keyframes glow{ from{text-shadow:0 0 8px #ff4dd2} to{text-shadow:0 0 18px #7b61ff} }
-input{ padding:12px; border-radius:25px; border:none; width:260px; text-align:center; }
-button{
-  margin-top:18px; padding:12px 30px; border:none; border-radius:30px;
-  background:linear-gradient(90deg,#ff0066,#6600ff); color:white; font-size:18px;
+
+input{
+  background:none;
+  border:none;
+  border-bottom:1px solid #555;
+  color:white;
+  font-size:18px;
+  text-align:center;
+  padding:10px;
+  outline:none;
+  width:200px;
 }
-#error{ color:#ff6b6b; display:none; margin-top:12px; }
 </style>
 </head>
 
 <body>
-<h1>🎄 Christmas 2026 🎄</h1>
-<p>enter password</p>
-<input type="password" id="pass" placeholder="6/5/2024">
-<br>
-<button onclick="check()">🔓 unlock</button>
-<div id="error">❌ كلمة السر خاطئة</div>
 
-<audio id="openSound">
-  <source src="open.mp3">
-</audio>
+<input type="password" id="pass" autocomplete="off">
 
 <script>
-function check(){
-  if(document.getElementById("pass").value === "6/5/2024"){
-    document.getElementById("openSound").play();
-    setTimeout(()=>{ window.location.href="surprise.html"; },700);
-  }else{
-    document.getElementById("error").style.display="block";
+document.getElementById("pass").addEventListener("keydown",function(e){
+  if(e.key==="Enter"){
+    if(this.value==="6/5/2024"){
+      document.body.style.opacity="0";
+      setTimeout(()=>{location.href="surprise.html"},800);
+    }else{
+      this.value="";
+    }
   }
-}
+});
 </script>
+
 </body>
 </html>
