@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Christmas 🔐</title>
+</head>
+
+<body style="background:black;color:white;text-align:center;padding-top:100px">
+
+<h2>🎄 Christmas</h2>
+
+<input type="password" id="pass" placeholder="Password">
+<br><br>
+
+<button onclick="check()">unlock 🔓</button>
+
+<p id="error" style="color:red;display:none">كلمة السر خاطئة</p>
+
+<script>
+function check(){
+  if(document.getElementById("pass").value === "christmas"){
+    window.location.href = "surprise.html";
+  }else{
+    document.getElementById("error").style.display="block";
+  }
+}
+</script>
+
+</body>
+</html>
